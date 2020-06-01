@@ -1,0 +1,5 @@
+env
+.vscode
+*.sqlite3
+*.pyc
+demo.code-workspace
