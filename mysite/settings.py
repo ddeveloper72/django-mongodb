@@ -75,8 +75,17 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'djongo',
+        'ENFORCE_SCHEMA': False,
+        'NAME': 'django-test',
+        'AUTH_MECHANISM': 'SCRAM-SHA-1',
+        'CLIENT': {
+            'host': os.environ.get('host'),
+            'port': 35956,
+            'username': os.environ.get('username'),
+            'password': os.environ.get('password'),
+            'authSource': os.environ.get('authSource')
+        }
     }
 }
 
