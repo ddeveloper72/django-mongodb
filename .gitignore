@@ -2,4 +2,4 @@ venv
 .vscode
 *.sqlite3
 *.pyc
-demo.code-workspace
+djongo-test.code-workspace
