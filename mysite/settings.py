@@ -81,11 +81,7 @@ DATABASES = {
         'NAME': 'django-test',
         'AUTH_MECHANISM': 'SCRAM-SHA-1',
         'CLIENT': {
-            'host': os.environ.get('host'),
-            'port': 35956,
-            'username': os.environ.get('username'),
-            'password': os.environ.get('password'),
-            'authSource': os.environ.get('authSource')
+            'host': str(os.environ.get('host'))
         }
     }
 }
