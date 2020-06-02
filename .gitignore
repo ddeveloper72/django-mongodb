@@ -1,5 +1,7 @@
 venv
 .vscode
+*.code-workspace
 *.sqlite3
 *.pyc
-djongo-test.code-workspace
+blog/migrations/*
+*\__pycache__
