@@ -7,8 +7,23 @@ class Post(models.Model):
     name = models.CharField(max_length=200)
     tags = models.TextField()
 
+    class Meta:
+        abstract = True
+
     def __str__(self):
         return self.name
+
+# metadata model representing dates and intergers such as pingbacks
+# and ratings
+class MetaData(models.Model):
+    pub_date = models.DateField()
+    mod_date = models.DateField()
+    n_pingbacks = models.IntegerField()
+    rating = models.IntegerField()
+
+    class Meta:
+        abstract = True
+
 
 
 class Author(models.Model):
