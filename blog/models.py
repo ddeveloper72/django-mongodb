@@ -25,7 +25,6 @@ class MetaData(models.Model):
         abstract = True
 
 
-
 class Author(models.Model):
     name = models.CharField(max_length=200)
     email = models.EmailField()
@@ -38,15 +37,18 @@ class Author(models.Model):
 
 
 class Entry(models.Model):
-    blog = models.ForeignKey(Post, on_delete=models.CASCADE)
+    blog = models.EmbeddedModelField(
+        model_container=Post,
+    )
+    meta_data = models.EmbeddedModelField(
+        model_container=MetaData,
+    )
     title = models.CharField(max_length=255)
     body_text = models.TextField()
-    pub_date = models.DateField()
-    mod_date = models.DateField()
+    
     authors = models.ManyToManyField(Author)
     n_comments = models.IntegerField()
-    n_pingbacks = models.IntegerField()
-    rating = models.IntegerField()
+    
 
     def __str__(self):
         return self.title
