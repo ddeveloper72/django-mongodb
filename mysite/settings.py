@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'reset_migrations',
     'blog',
 ]
 
@@ -77,11 +78,10 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'djongo',
-        'ENFORCE_SCHEMA': False,
         'NAME': 'django-test',
-        'AUTH_MECHANISM': 'SCRAM-SHA-1',
+        #'AUTH_MECHANISM': 'SCRAM-SHA-1',
         'CLIENT': {
-            'host': str(os.environ.get('host'))
+            'host': str(os.environ.get('MONGODB_URI '))
         }
     }
 }
