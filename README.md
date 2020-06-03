@@ -46,7 +46,7 @@ Once the fresh from start app was run using the workspace settings, I was able t
 How ever when I ran `python manage.py migrate`, I 
 got a `djongo.database.DatabaseError`. The cause, `djongo.exceptions.SQLDecodeError: FAILED SQL: INSERT INTO "django_migrations" ("app", "name", "applied")`
 
-In order to trouble shoot this, found many references by developers commenting on stackoverflow to use this older version of sqlparse==0.2.4.  Having installed the current version of Djongo v1.3.2 at the time of writing this document, sqlparse v0.2.4 along with Django v2.2.13 is installed by default.
+In order to trouble shoot this, I found many references by developers commenting on stackoverflow to use this older version of sqlparse==0.2.4.  Having installed the current version of Djongo v1.3.2 at the time of writing this document, sqlparse v0.2.4 along with Django v2.2.13 is installed by default.
 
 Further trouble-shooting referenced the database error:
 
@@ -60,13 +60,13 @@ The parse error, that was preventing the `manage.py migrate` from happening was 
 
 On foot of this, now that the migrations had been applied and I was able to see the new documents added to my collections on mLab.
 
-![MongoDB collection](https://github.com/ddeveloper72/django-mongodb/blob/master/static/static/img/db-collections-1.png"db collections")
+![MongoDB collection](https://github.com/ddeveloper72/django-mongodb/blob/master/static/img/db-collections-1.png "db collections")
 
 I was then able to create a the superuser and store that data to a new document in the  auth-user collection.
 
-![auth_user document](https://github.com/ddeveloper72/django-mongodb/blob/master/static/static/img/db-auth_user-document-2.png"db collections")
+![auth_user document](https://github.com/ddeveloper72/django-mongodb/blob/master/static/img/db-auth_user-document-2.png "db collections")
 
 
 This is work is still in progress.
 
-![Figuring out stuff](https://github.com/ddeveloper72/django-mongodb/blob/master/static/static/img/wippng"working hard!")
+![Figuring out stuff](https://github.com/ddeveloper72/django-mongodb/blob/master/static/img/wip.png "working hard!")
