@@ -46,7 +46,9 @@ class Entry(models.Model):
     title = models.CharField(max_length=255)
     body_text = models.TextField()
     
-    authors = models.ManyToManyField(Author)
+    authors = models.ArrayModelField(
+        model_container=Author,
+    )
     n_comments = models.IntegerField()
     
 
