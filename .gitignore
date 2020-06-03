@@ -1,7 +1,7 @@
-venv
+venv/
 .vscode
 *.code-workspace
 *.sqlite3
 *.pyc
-blog/migrations/*
-*\__pycache__
+blog/migrations/
+__pycache__/
