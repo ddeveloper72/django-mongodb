@@ -1,16 +1,32 @@
 from djongo import models
+from django import forms
 # Create your models here.
 
 
-class Post(models.Model):
-    name = models.CharField(max_length=200)
-    tags = models.TextField()
+class Blog(models.Model):
+    name = models.CharField(max_length=40)
+    tagline = models.TextField()
 
-    # class Meta:
-    #     abstract = True
+    class Meta:
+        abstract = True
 
     def __str__(self):
         return self.name
+
+
+class BlogForm(forms.ModelForm):
+
+    class Meta:
+        model = Blog
+        fields = (
+            'name', 'tagline'
+        )
+        widgets = {
+            'name': forms.Textarea(attrs={'placeholder':
+                                          'Your name please'}),
+            'tagline': forms.Textarea(attrs={'placeholder':
+                                             'add tags here'})
+        }
 
 # metadata model representing dates and intergers such as pingbacks
 # and ratings
@@ -23,36 +39,44 @@ class MetaData(models.Model):
 
 
 # Djongo will never register this model as an actual model. 
-    # class Meta:
-    #     abstract = True
+    class Meta:
+        abstract = True
 
+
+class MetaDataForm(forms.ModelForm):
+
+    class Meta:
+        model = MetaData
+        fields = (
+            'pub_date', 'mod_date',
+            'n_pingbacks', 'rating'
+        )
+        
 
 class Author(models.Model):
-    name = models.CharField(max_length=200)
+    name = models.CharField(max_length=40)
     email = models.EmailField()
-
-    # Djongo will never register this model as an actual model.
-    # class Meta:
-    #     abstract = True
 
     def __str__(self):
         return self.name
 
 
 class Entry(models.Model):
-    # blog = models.EmbeddedField(
-    #     model_container=Post,
-    # )
-    # meta_data = models.EmbeddedField(
-    #     model_container=MetaData,
-    # )
-    title = models.CharField(max_length=255)
-    body_text = models.TextField()
+    blog = models.EmbeddedModelField(
+        model_container=Blog,
+        model_form_class=BlogForm
+    )
+    meta_data = models.EmbeddedModelField(
+        model_container=MetaData,
+        model_form_class=MetaDataForm
+    )
+    headline = models.CharField(max_length=80)
+    body_text = models.TextField(max_length=360)
+    authors = models.ManyToManyField(Author)
     
-    # authors = models.ArrayField(
-    #     model_container=Author,
-    # )
-    n_comments = models.IntegerField()
+    def no_of_comments(self):
+        n_comments = Entry.objects.filter(blog=self)
+        return len(n_comments)
  
     def __str__(self):
-        return self.title
+        return self.headline
