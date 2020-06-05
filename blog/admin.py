@@ -1,7 +1,7 @@
 from django.contrib import admin
-from .models import Post, Author, Entry
+from .models import Author, Entry
 
 # Register your models here.
 
 
-admin.site.register([Post, Author, Entry])
+admin.site.register([Author, Entry])
