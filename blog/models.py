@@ -23,9 +23,36 @@ class BlogForm(forms.ModelForm):
         )
         widgets = {
             'name': forms.Textarea(attrs={'placeholder':
-                                          'Your name please'}),
+                                          'Blog Title'}),
             'tagline': forms.Textarea(attrs={'placeholder':
-                                             'add tags here'})
+                                             'About this Blog'})
+        }
+
+
+class Comment(models.Model):
+    name = models.CharField(max_length=40)
+    comment_text = models.CharField(max_length=40)
+
+    class Meta:
+        abstract = True
+
+    def __str__(self):
+        return self.name
+
+
+
+class CommentForm(forms.ModelForm):
+
+    class Meta:
+        model = Comment
+        fields = (
+            'name', 'comment_text'
+        )
+        widgets = {
+            'name': forms.Textarea(attrs={'placeholder':
+                                                  'Add your name'}),
+            'comment_text': forms.Textarea(attrs={'placeholder':
+                                                  'Comment on this blog'})
         }
 
 # metadata model representing dates and intergers such as pingbacks
@@ -72,11 +99,12 @@ class Entry(models.Model):
     )
     headline = models.CharField(max_length=80)
     body_text = models.TextField(max_length=360)
+    comment = models.EmbeddedModelField(
+        model_container=Comment,
+        model_form_class=CommentForm
+    )
     authors = models.ManyToManyField(Author)
-    
-    def no_of_comments(self):
-        n_comments = Entry.objects.filter(blog=self)
-        return len(n_comments)
+    n_comments = models.IntegerField()
  
     def __str__(self):
         return self.headline
