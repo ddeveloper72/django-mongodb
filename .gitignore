@@ -4,3 +4,5 @@
 *.sqlite3
 *.pyc
 __pycache__/
+sass/
+static/css/main.css.map
