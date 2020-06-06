@@ -1,12 +1,14 @@
 from djongo import models
 from django import forms
+from django.utils import timezone
 # Create your models here.
 
 
 class Blog(models.Model):
     name = models.CharField(max_length=40)
     tagline = models.TextField()
-    created_date = models.DateTimeField(auto_now_add=True)
+    pub_date = models.DateTimeField(blank=True, null=True,
+                                    default=timezone.now)
 
     class Meta:
         abstract = True
