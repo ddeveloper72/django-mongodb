@@ -6,6 +6,7 @@ from django import forms
 class Blog(models.Model):
     name = models.CharField(max_length=40)
     tagline = models.TextField()
+    created_date = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         abstract = True
@@ -32,6 +33,7 @@ class BlogForm(forms.ModelForm):
 class Comment(models.Model):
     name = models.CharField(max_length=40)
     comment_text = models.TextField(max_length=360)
+    created_date = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         abstract = True
