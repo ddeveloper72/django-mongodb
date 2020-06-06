@@ -31,7 +31,7 @@ class BlogForm(forms.ModelForm):
 
 class Comment(models.Model):
     name = models.CharField(max_length=40)
-    comment_text = models.CharField(max_length=40)
+    comment_text = models.TextField(max_length=360)
 
     class Meta:
         abstract = True
@@ -50,7 +50,7 @@ class CommentForm(forms.ModelForm):
         )
         widgets = {
             'name': forms.Textarea(attrs={'placeholder':
-                                                  'Add your name'}),
+                                          'Add your name'}),
             'comment_text': forms.Textarea(attrs={'placeholder':
                                                   'Comment on this blog'})
         }
