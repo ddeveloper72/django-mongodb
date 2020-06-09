@@ -1,26 +1,30 @@
-
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog Site</title>
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,400i|Nunito:300,300i" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
 </head>
+
 <body>
     <header>
         <h1>Hello World!</h1>
     </header>
     <main>
-        
+
         {% block content %}
-            
+
         {% endblock %}
 
     </main>
     <footer>
 
-    </footer>    
+    </footer>
 </body>
+
 </html>
