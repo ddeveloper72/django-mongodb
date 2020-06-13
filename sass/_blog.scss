@@ -1,0 +1,68 @@
+%heading {
+    font-family: $font-display;
+    font-weight: 400;
+}
+
+.heading-1 {
+    @extend %heading;
+    font-size: 4.5rem;
+    line-height: 1;
+
+}
+
+.heading-2 {
+    @extend %heading;
+    font-size: 2rem;
+    line-height: 1;
+
+}
+
+.blog {
+    grid-column: center-start / center-end;
+    margin: 15rem 0;
+
+    &__name {
+        color: orangered;
+    }
+
+    &__tagline {
+        font-size: 1.7rem;
+
+    }
+
+    &__author {
+    font-size: 1.2rem;
+    font-weight: 400;
+    font-style: italic;
+
+    }
+
+    &__meta {
+        list-style: none;
+        font-size: 1.2rem;
+        
+    }
+
+    &__body {
+
+        &-text {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1.2rem;
+
+        }
+    }
+    
+    &__comment
+
+    {
+        &-text {
+            font-size: 1.2rem;
+        }
+
+        &-name {
+            font-size: 1.2rem;
+            font-weight: 400;
+            font-style: italic;
+        }
+    }
+}
