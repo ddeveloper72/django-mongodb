@@ -1,12 +1,13 @@
 {%  extends "base.html" %}
+{% load static from staticfiles %}
 {%  block content %}
 
 <div class="blog">
     {% for entry in entries %}
     <div class="blog__header">
-        <h1 class="blog__name">{{ entry.blog.name }}</h1>
+        <h1 class="heading-1 blog__name">{{ entry.blog.name }}</h1>
         <p class="blog__tagline">{{ entry.blog.tagline }}</p>
-        <p class="blog__author">{{ entry.authors.name }}</p>
+        <p class="blog__author">{{ entry.author.name }}</p>
     </div>
     <ul class="blog__meta">
         <li class="blog__meta--1">Published: {{ entry.blog.pub_date | date }}</li>
@@ -15,7 +16,7 @@
         <li class="blog__meta--4">Rating: {{ entry.meta_data.rating }}</li>
     </ul>
     <div class="blog__headline">
-        <h2>{{ entry.headline }}</h2>
+        <h2 class="heading-2 blog__headline">{{ entry.headline }}</h2>
     </div>
     <p class="blog__body-text">
         {{ entry.body_text}}
@@ -25,6 +26,7 @@
         <P class="blog__comment-name">by {{ entry.comment.name}}</P>
     </div>
     {% endfor %}
+    <br>
 </div>
 
 
