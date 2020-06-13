@@ -32,7 +32,7 @@ class BlogForm(forms.ModelForm):
     class Meta:
         model = Blog
         fields = (
-            'name', 'tagline'
+            'name', 'tagline', 'pub_date'
         )
         widgets = {
             'name': forms.Textarea(attrs={'placeholder':
