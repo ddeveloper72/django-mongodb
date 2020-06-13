@@ -4,6 +4,16 @@ from django.utils import timezone
 # Create your models here.
 
 
+class Author(models.Model):
+    name = models.CharField(max_length=40)
+
+    class Meta:
+        abstract = True
+    
+    def __str__(self):
+        return self.name
+
+
 class Blog(models.Model):
     name = models.CharField(max_length=40)
     tagline = models.TextField()
@@ -35,14 +45,13 @@ class BlogForm(forms.ModelForm):
 class Comment(models.Model):
     name = models.CharField(max_length=40)
     comment_text = models.TextField(max_length=360)
-    created_date = models.DateTimeField(auto_now_add=True)
+    pub_date = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         abstract = True
 
     def __str__(self):
-        return self.name
-
+        return self.author
 
 
 class CommentForm(forms.ModelForm):
@@ -62,6 +71,7 @@ class CommentForm(forms.ModelForm):
 # metadata model representing dates and intergers such as pingbacks
 # and ratings
 
+
 class MetaData(models.Model):
     pub_date = models.DateField()
     mod_date = models.DateField()
@@ -69,7 +79,8 @@ class MetaData(models.Model):
     rating = models.IntegerField()
 
 
-# Djongo will never register this model as an actual model. 
+# Djongo will never register this model as an actual model.
+
     class Meta:
         abstract = True
 
@@ -82,14 +93,6 @@ class MetaDataForm(forms.ModelForm):
             'pub_date', 'mod_date',
             'n_pingbacks', 'rating'
         )
-        
-
-class Author(models.Model):
-    name = models.CharField(max_length=40)
-    email = models.EmailField()
-
-    def __str__(self):
-        return self.name
 
 
 class Entry(models.Model):
@@ -97,6 +100,8 @@ class Entry(models.Model):
         model_container=Blog,
         model_form_class=BlogForm
     )
+    author = models.EmbeddedModelField(
+        model_container=Author)
     meta_data = models.EmbeddedModelField(
         model_container=MetaData,
         model_form_class=MetaDataForm
@@ -107,8 +112,7 @@ class Entry(models.Model):
         model_container=Comment,
         model_form_class=CommentForm
     )
-    authors = models.ManyToManyField(Author)
     n_comments = models.IntegerField()
- 
+
     def __str__(self):
         return self.headline
