@@ -1,5 +1,32 @@
-header {
+.header {
     display: grid;
     grid-template-columns: 1.5fr 1fr;
     align-items: center;
+
+    &__logo {
+        height: 5rem;
+        justify-self: center;
+    }
+}
+
+.navigation {
+
+    &__nav {
+
+    }
+
+    &__list {
+
+
+    }
+
+    &__item {
+
+
+    }
+
+    &__link {
+
+        
+    }
 }
