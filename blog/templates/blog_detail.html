@@ -3,31 +3,13 @@
 {%  block content %}
 
 <div class="blog">
-
     <div class="blog__header">
-        <h1 class="heading-1 blog__name">{{ entry.blog.name }}</h1>
-        <p class="blog__tagline">{{ entry.blog.tagline }}</p>
-        <p class="blog__author">{{ entry.author.name }}</p>
+        <h1 class="heading-1 blog__name">{% block title %} {{ post.title }} {% endblock title %}</h1>
+        <p class="blog__author">{{ post.author }} | {{ post.created_on}}</p>
+        <p class="blog__body-text">{{post.content|safe }}</p>
+        <a href="{% url 'blogs' %}" class="btn btn-primary">&larr; Return to blogs</a>
+        <a href="{% url 'edit' post.slug %}" class="btn btn-primary">Edit post &rarr;</a>
     </div>
-    <ul class="blog__meta">
-        <li class="blog__meta--1">Published: {{ entry.blog.pub_date | date }}</li>
-        <li class="blog__meta--2">Date Modified: {{ entry.meta_data.mod_date | date }}</li>
-        <li class="blog__meta--3">No. Ping Backs: {{ entry.meta_data.n_pingbacks }}</li>
-        <li class="blog__meta--4">Rating: {{ entry.meta_data.rating }}</li>
-    </ul>
-    <div class="blog__headline">
-        <h2 class="heading-2 blog__headline">{{ entry.headline }}</h2>
-    </div>
-    <p class="blog__body-text">
-        {{ entry.body_text}}
-    </p>
-    <a href="{% url 'blogs' %}" class="btn btn-default btn-primary">Return to all Blogs</a>
-    <div class="blog__comment">
-        <h2>Comments</h2>
-        <P class="blog__comment-text">{{ entry.comment.comment_text }}</P>
-        <P class="blog__comment-name">by {{ entry.comment.name}}</P>
-    </div>
-
     <br>
 </div>
 
