@@ -3,17 +3,13 @@
 {%  block content %}
 
 <div class="blog">
-    {% for entry in entries %}
+    {% for post in posts %}
     <div class="blog__header">
-        <h1 class="heading-1 blog__name">{{ entry.blog.name }}</h1>
-        <p class="blog__tagline">{{ entry.blog.tagline }}</p>
-        <p class="blog__author">{{ entry.author.name }}</p>
+        <h1 class="heading-1 blog__name">{{ post.title }}</h1>
+        <p class="blog__author">{{ post.author }} | {{ post.created_on}}</p>
+        <p class="blog__body-text">{{post.content|slice:":200" }}</p>
+        <a href="{% url 'post_detail' post.slug  %}" class="btn btn-primary">Read More &rarr;</a>
     </div>
-    <div class="blog__headline">
-        <h2 class="heading-2 blog__headline">{{ entry.headline }}</h2>
-    </div>
-    <p><a href="{% url 'BlogDetail' entry.id %}" class="btn btn-default btn-primary">Read
-            more</a></p>
     {% endfor %}
     <br>
 </div>
