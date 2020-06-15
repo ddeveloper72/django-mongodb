@@ -3,7 +3,8 @@ from django.urls import path, re_path
 from . import views
 
 urlpatterns = [
-    path('', views.blogs, name='blogs'),
-    re_path(r'^(?P<pk>[a-z\d]+)$', views.BlogDetail,
-            name='BlogDetail')
+    path('', views.PostList, name='blogs'),
+    path('<slug:slug>/', views.PostDetail, name='post_detail'),
+    re_path(r'^(?P<slug>[\w-]+)/edit-post/$', views.create_or_edit_a_post,
+            name='edit')
 ]
