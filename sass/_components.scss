@@ -12,7 +12,11 @@
 .navigation {
 
     &__nav {
-
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        right: 0;
+        
     }
 
     &__list {
@@ -27,6 +31,6 @@
 
     &__link {
 
-        
+
     }
 }
