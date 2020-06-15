@@ -13,17 +13,17 @@
 
 <body>
     <header class="header">    
-        <img src="#" />
-        <nav>
-            <ul class="nav">
-                <li><a href="#" class="active">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">My blog</a></li>
-                <li><a href="#">Contact</a></li>
+        <img src="{% static 'img/wip.png' %}" alt="blog logo" class="header__logo"/>
+        <nav class="navigation__nav">
+            <ul class="navigation__list">
+                <li class="navigation__item"><a href="#" class="navigation__link active">Home</a></li>
+                <li class="navigation__item"><a href="#" class="navigation__link">About</a></li>
+                <li class="navigation__item"><a href="#" class="navigation__link">My blog</a></li>
+                <li class="navigation__item"><a href="#" class="navigation__link">Contact</a></li>
             </ul>
         </nav>
     </header>
-    <main class="container">
+    <main>
 
         {% block content %}
 
