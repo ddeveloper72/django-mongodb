@@ -3,12 +3,14 @@
 {%  block content %}
 
 <article class="main-content">
-    <section>        
+    <section>
         <h1 class="heading-1 blog__name">{% block title %} {{ post.title }} {% endblock title %}</h1>
         <p class="blog__author">{{ post.author }} | {{ post.created_on}}</p>
         <p class="blog__body-text">{{post.content|safe }}</p>
         <a href="{% url 'blogs' %}" class="btn btn-primary">&larr; Return to blogs</a>
-        <a href="{% url 'edit' post.slug %}" class="btn btn-primary">Edit post &rarr;</a>    </section>
+        <a href="{% url 'edit' post.slug %}" class="btn btn-primary">Edit post &rarr;</a>
+        <a href="{% url 'delete' post.slug %}" class="btn btn-primary">Delete post &rarr;</a>
+    </section>
 </article>
 
 
