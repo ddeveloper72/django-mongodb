@@ -45,3 +45,16 @@ def create_or_edit_a_post(request, slug=None):
     else:
         form = BlogForm(instance=post)
         return render(request, 'add_blog.html', {'form': form})
+
+
+def remove_post(request, slug):
+    # remove a post from the collection
+
+    post = get_object_or_404(Post, slug=slug)
+    if request.method == "POST":
+        post.delete()
+        return redirect(reverse('blogs'))
+    context = {
+            'post': post
+            }
+    return (render(request, 'remove_blog.html', context))
