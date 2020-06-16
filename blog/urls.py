@@ -5,6 +5,8 @@ from . import views
 urlpatterns = [
     path('', views.PostList, name='blogs'),
     path('<slug:slug>/', views.PostDetail, name='post_detail'),
-    re_path(r'^(?P<slug>[\w-]+)/edit-post/$', views.create_or_edit_a_post,
-            name='edit')
+    re_path(r'^(?P<slug>[\w-]+)/edit/$', views.create_or_edit_a_post,
+            name='edit'),
+    re_path(r'^(?P<slug>[\w-]+)/delete/$', views.remove_post,
+            name='delete')
 ]
