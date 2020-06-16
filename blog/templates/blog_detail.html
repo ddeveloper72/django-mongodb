@@ -2,16 +2,17 @@
 {% load static from staticfiles %}
 {%  block content %}
 
-<div class="blog">
-    <div class="blog__header">
+<article class="main-content">
+    <section>        
         <h1 class="heading-1 blog__name">{% block title %} {{ post.title }} {% endblock title %}</h1>
         <p class="blog__author">{{ post.author }} | {{ post.created_on}}</p>
         <p class="blog__body-text">{{post.content|safe }}</p>
         <a href="{% url 'blogs' %}" class="btn btn-primary">&larr; Return to blogs</a>
-        <a href="{% url 'edit' post.slug %}" class="btn btn-primary">Edit post &rarr;</a>
-    </div>
-    <br>
-</div>
+        <a href="{% url 'edit' post.slug %}" class="btn btn-primary">Edit post &rarr;</a>    </section>
+</article>
+
+
+
 
 
 
