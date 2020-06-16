@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static from staticfiles %}
+
+{% block content %}
+
+<form method="POST" action=".">
+    {% csrf_token %}
+    <p>Are you sure you want to delete: "{{ post.title }} ?"</p>
+
+    <div class="card-text">{{ post.content|safe }}</div>
+
+    <input type="submit" value="Confirm" class="btn btn-default btn-warning mr-2">
+    <a href="{% url 'post_detail' post.slug %}" class="btn btn-default btn-primary">Return to
+        post</a>
+</form>
+
+{% endblock content %}
