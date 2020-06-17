@@ -2,17 +2,26 @@
 {% load static from staticfiles %}
 {%  block content %}
 
-    <article>
-        <section class="hero">
-            {% for post in posts %}
-            <div class="blog__header">
-                <h1>{{ post.title }}</h1>
-                <p>{{ post.author }} | {{ post.created_on}}</p>
-                <p>{{post.content|slice:":200" }}</p>
-                <a href="{% url 'post_detail' post.slug  %}" class="btn btn-primary">Read More &rarr;</a>
-            </div>
-            {% endfor %}        
-        </section>
-    </article>
+<article>
+    <section class="hero">
+        {% if posts %}
+        {% for post in posts %}
+        <div class="blog__header">
+            <h1>{{ post.title }}</h1>
+            <p>{{ post.author }} | {{ post.created_on}}</p>
+            <p>{{post.content|slice:":200" }}</p>
+            <a href="{% url 'post_detail' post.slug  %}" class="btn btn-primary">Read More &rarr;</a>
+        </div>
+        {% endfor %}
+        {% else %}
+        <p>There are no blog items added yet</p>
+        <a href="{% url 'new_post' %}" class="btn" role="button">
+            New Post</a>
+        {% endif %}
+        <p>Add a new post:</p>
+        <a href="{% url 'new_post' %}" class="btn" role="button">
+            New Post</a>
+    </section>
+</article>
 
 {%  endblock content %}
