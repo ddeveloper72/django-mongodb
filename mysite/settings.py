@@ -37,6 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_mongoengine',
+    'django_mongoengine.mongo_auth',
+    'django_mongoengine.mongo_admin',
     'reset_migrations',
     'blog',
 ]
@@ -74,6 +77,10 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
+
+MONGODB_DATABASES = {
+    'default': {'name': 'django-test'}
+}
 
 DATABASES = {
     'default': {
