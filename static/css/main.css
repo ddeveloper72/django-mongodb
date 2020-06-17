@@ -13,23 +13,6 @@ html {
   font-size: 62.5%;
 }
 
-body {
-  font-family: "Nunito", sans-serif;
-  font-weight: 300;
-  line-height: 1.6;
-}
-
-.container {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-rows: (min-content)[4];
-      grid-template-rows: repeat(4, -webkit-min-content);
-      grid-template-rows: repeat(4, min-content);
-  -ms-grid-columns: [full-start] 16rem [center-start] ([col-start] minmax(min-content, 14rem) [col-end])[8] [center-end] minmax(6rem, 1fr) [full-end];
-      grid-template-columns: [full-start] 16rem [center-start] repeat(8, [col-start] minmax(-webkit-min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];
-      grid-template-columns: [full-start] 16rem [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];
-}
-
 .heading-1, .heading-2 {
   font-family: "Josefin Sans", sans-serif;
   font-weight: 400;
@@ -70,7 +53,7 @@ body {
 }
 
 .blog__body-text {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Josefin Sans", sans-serif;
   font-size: 1.2rem;
 }
 
