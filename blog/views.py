@@ -56,6 +56,7 @@ def create_or_edit_a_post(request, slug=None):
     if request.method == "POST":
         if form.is_valid():
             post = form.save(commit=False)
+            post.slug = slugify(post.title)
             post = form.save()
             return redirect(PostDetail, post.slug)
         else:
