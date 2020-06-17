@@ -29,28 +29,9 @@ def PostDetail(request, slug):
         return HttpResponse('No blog entries have been added')
 
 
-def create_a_post(request, slug=None):
-    # and a new blog to the collection
-
-    post = get_object_or_404(Post, slug=slug) if slug else None
-    form = BlogForm(request.POST, instance=post)
-    if request.method == "POST":
-        if form.is_valid():
-            post = form.save(commit=False)
-            post.slug = slugify(post.title)
-            post = form.save()
-            return redirect(PostDetail, post.slug)
-        else:
-            form = BlogForm(instance=post)
-            return render(request, 'add_blog.html', {'form': form})
-    else:
-        form = BlogForm(instance=post)
-        return render(request, 'add_blog.html', {'form': form})
-
-
 def create_or_edit_a_post(request, slug=None):
     # and a new blog to the collection
-    
+
     post = get_object_or_404(Post, slug=slug) if slug else None
     form = BlogForm(request.POST, instance=post)
     if request.method == "POST":
@@ -65,6 +46,8 @@ def create_or_edit_a_post(request, slug=None):
     else:
         form = BlogForm(instance=post)
         return render(request, 'add_blog.html', {'form': form})
+
+
 
 
 def remove_post(request, slug):
