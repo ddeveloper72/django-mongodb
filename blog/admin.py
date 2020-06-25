@@ -5,12 +5,10 @@ from .models import Post
 
 
 class PostAdmin(admin.ModelAdmin):
-    list_display = ('title', 'slug', 'status', 'created_on')
+    list_display = ('headline', 'status', 'author')
     list_filter = ("status",)
-    search_fields = ['title', 'content']
-    prepopulated_fields = {'slug': ('title',)}
+    search_fields = ['headline', 'content', 'author']
+    prepopulated_fields = {'slug': ('headline',)}
 
 
 admin.site.register(Post, PostAdmin)
-
-# admin.site.register(Post)
