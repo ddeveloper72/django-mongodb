@@ -1,0 +1,20 @@
+{%  extends "base.html" %}
+{% load static from staticfiles %}
+{%  block content %}
+
+<div class="blog">
+    <div class="blog__header">
+        <h1 class="heading-1 blog__name">Add a New Comment</h1>
+    </div>
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{ form }}
+        <a href="{% url 'blogs' %}" class="btn btn-default btn-primary mr-2 mb-2">Back to
+            blog</a>
+        <button class="btn btn-success" type="submit">Save</button>
+    </form>
+</div>
+
+
+
+{%  endblock content %}
