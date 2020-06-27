@@ -10,5 +10,7 @@ urlpatterns = [
     re_path(r'^(?P<slug>[\w-]+)/edit/$', views.create_or_edit_a_post,
             name='edit'),
     re_path(r'^(?P<slug>[\w-]+)/delete/$', views.remove_post,
-            name='delete')
+            name='delete'),
+    path('add_comment/<int:pk>/comment/', views.add_comment,
+         name='add_comment')
 ]
