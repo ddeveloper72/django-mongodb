@@ -9,13 +9,23 @@
 
         {% for post in posts %}
 
-        <div class="blog__header">
-            <h1 class="heading-1 blog__title">Title: {{ post.title.name}} | Post id: {{post.id}}</h1>
-            <h2 class="heading-2 blog__tagline">Tagline: {{ post.title.tagline }}</h2>
-            <p>Author: {{ post.author }} | {{ post.meta_data.created_on }}</p>
-            <p>Content: {{post.content|slice:":200" }}</p>
-            <p>Updated: {{ post.meta_data.updated_on }}</p>
-            <a href="{% url 'post_detail' post.slug  %}" class="btn btn-primary">Read More &rarr;</a>
+        <div class="post">
+            <div class="meta-data">
+                <span class="post__date">
+                    <a href="{% url 'post_detail' post.slug  %}">{{ post.meta_data.created_on }}</a>                    
+                </span>
+                <span class="post__tag">
+                    <a href="{% url 'post_detail' post.slug  %}">Tagline: {{ post.title.tagline }}</a>
+                </span>
+            </div>
+            <div class="post__title">
+                <a href="{% url 'post_detail' post.slug  %}">{{ post.title.name}} | Post id: {{post.id}}</a>
+            </div>
+            <div class="post__content">
+                <p>Content: {{post.content|slice:":200" }}</p>
+                <p>Last updated: {{ post.meta_data.updated_on }}</p>
+                <a href="{% url 'post_detail' post.slug  %}" class="btn btn-primary">Read More &rarr;</a>
+            </div>
         </div>
 
         {% for comment in post.comments.all %}
