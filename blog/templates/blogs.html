@@ -4,23 +4,49 @@
 
 <article>
     <section class="hero">
+
         {% if posts %}
+
         {% for post in posts %}
+
         <div class="blog__header">
-            <h1>{{ post.title }}</h1>
-            <p>{{ post.author }} | {{ post.created_on}}</p>
-            <p>{{post.content|slice:":200" }}</p>
+            <h1 class="heading-1 blog__title">Title: {{ post.title.name}} | Post id: {{post.id}}</h1>
+            <h2 class="heading-2 blog__tagline">Tagline: {{ post.title.tagline }}</h2>
+            <p>Author: {{ post.author }} | {{ post.meta_data.created_on }}</p>
+            <p>Content: {{post.content|slice:":200" }}</p>
+            <p>Updated: {{ post.meta_data.updated_on }}</p>
             <a href="{% url 'post_detail' post.slug  %}" class="btn btn-primary">Read More &rarr;</a>
         </div>
+
+        {% for comment in post.comments.all %}
+        <p class="blog__author">Comment by: {{ comment.name }} | Comment id: {{ comment.id}} | {{ comment.created_on }}
+        </p>
+        <p class="blog__body-text">{{ comment.comment_text|safe }}</p>
+
+        {% empty %}
+
+        <div class="row">
+            <p>No comments yet</p>
+        </div>
+
         {% endfor %}
+
+        <a class="btn btn-default btn-primary" href="{% url 'add_comment' pk=post.pk %}">Add
+            comment</a>
+
+        {% endfor %}
+
+        <a href="{% url 'new_post' %}" class="btn" role="button">
+            New Post</a>
+
         {% else %}
+
         <p>There are no blog items added yet</p>
         <a href="{% url 'new_post' %}" class="btn" role="button">
             New Post</a>
+
         {% endif %}
-        <p>Add a new post:</p>
-        <a href="{% url 'new_post' %}" class="btn" role="button">
-            New Post</a>
+
     </section>
 </article>
 
