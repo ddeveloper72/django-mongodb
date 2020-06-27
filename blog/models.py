@@ -77,6 +77,7 @@ class Comment(models.Model):
     name = models.ForeignKey(User, default=None,
                              on_delete=models.CASCADE)
     post = models.ForeignKey(Post, default=None,
+                             related_name='comments',
                              on_delete=models.CASCADE,
                              )
     comment_text = models.TextField(blank=False)
