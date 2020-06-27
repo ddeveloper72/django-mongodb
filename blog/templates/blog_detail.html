@@ -4,18 +4,32 @@
 
 <article class="main-content">
     <section>
-        <h1 class="heading-1 blog__name">{% block title %} {{ post.title }} {% endblock title %}</h1>
-        <p class="blog__author">{{ post.author }} | {{ post.created_on}}</p>
-        <p class="blog__body-text">{{post.content|safe }}</p>
+        <h1 class="heading-1 blog__title">Title: {{ post.title.name }}</h1>
+        <h2 class="heading-2 blog__tagline">Tagline: {{ post.title.tagline }}</h2>
+        <h2 class="heading-1 blog__headline">Headline: {{ post.headline }}</h2>
+        <p class="blog__author">Author: {{ post.author }} | {{ post.meta_data.created_on }}</p>
+        <p class="blog__body-text">Content: {{ post.content|safe }}</p>
+        <p>Updated: {{ post.meta_data.updated_on }}</p>
         <a href="{% url 'blogs' %}" class="btn btn-primary">&larr; Return to blogs</a>
         <a href="{% url 'edit' post.slug %}" class="btn btn-primary">Edit post &rarr;</a>
-        <a href="{% url 'delete' post.slug %}" class="btn btn-primary">Delete post &rarr;</a>
+        <a href="{% url 'delete' slug=post.slug %}" class="btn btn-primary">Delete post &rarr;</a>
+
+        {% for comment in post.comments.all %}
+
+        <p class="blog__author">Comment by: {{ comment.name }} | {{ comment.created_on }}</p>
+        <p class="blog__body-text">{{ comment.comment_text|safe }}</p>
+
+        {% empty %}
+
+        <div class="row">
+            <p>No comments yet</p>
+        </div>
+
+        {% endfor %}
+
+        <a class="btn btn-default btn-primary" href="{% url 'add_comment' pk=post.pk %}">Add
+            comment</a>
     </section>
 </article>
-
-
-
-
-
 
 {%  endblock content %}
