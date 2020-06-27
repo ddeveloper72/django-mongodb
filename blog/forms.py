@@ -1,32 +1,32 @@
 from django import forms
-from .models import Post
+from .models import Post, Comment
 
 
 class BlogForm(forms.ModelForm):
 
     class Meta:
         model = Post
+        # author field references auth_user > username for this demonstration
+        # so a user can be selected when add in a new blog post.
         fields = (
-            'title', 'author', 'content', 'content', 'status'
+            'title', 'headline', 'content', 'author', 'status', 'meta_data',
         )
         widgets = {
-            'title': forms.Textarea(attrs={'placeholder':
-                                           'Post Title'}),
             'content': forms.Textarea(attrs={'placeholder':
                                              'About your post here...'})
         }
 
 
-# class CommentForm(forms.ModelForm):
+class CommentForm(forms.ModelForm):
 
-#     class Meta:
-#         model = Comment
-#         fields = (
-#             'name', 'comment_text'
-#         )
-#         widgets = {
-#             'name': forms.Textarea(attrs={'placeholder':
-#                                           'Add your name'}),
-#             'comment_text': forms.Textarea(attrs={'placeholder':
-#                                                   'Comment on this blog'})
-#         }
+    class Meta:
+        model = Comment
+        # author field references auth_user > username for this demonstration
+        # so a user can be selected when add in a new post comment.
+        fields = (
+            'name', 'comment_text',
+        )
+        widgets = {
+            'comment_text': forms.Textarea(attrs={'placeholder':
+                                                  'Comment on this blog'})
+        }
