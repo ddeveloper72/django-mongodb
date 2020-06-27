@@ -54,6 +54,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+
 ROOT_URLCONF = 'mysite.urls'
 
 TEMPLATES = [
@@ -86,7 +87,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'djongo',
         'NAME': 'django-test',
-        #'AUTH_MECHANISM': 'SCRAM-SHA-1',
+        # 'AUTH_MECHANISM': 'SCRAM-SHA-1',
         'CLIENT': {
             'host': str(os.environ.get('MONGODB_URI '))
         }
@@ -135,3 +136,9 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "blog", "static"),
+)
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
