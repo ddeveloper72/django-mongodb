@@ -18,9 +18,14 @@ from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 from django.urls import include, path
+from django.views.generic.base import RedirectView
+
+favicon_view = RedirectView.as_view(url='favicon/favicon.ico', permanent=True)
 
 urlpatterns = [
+    path('favicon.ico/', favicon_view, name="favicon"),
     path('', include('blog.urls')),
+    path('blog/', include('blog.urls')),
     path('admin/', admin.site.urls)
 ]
 
