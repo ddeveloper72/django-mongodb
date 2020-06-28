@@ -23,6 +23,11 @@
         position: absolute;
         top: 40%;
         left: 50%;
+        display: block;
+        /* ...then move the element itself again relative to the fixed top, left x y position */
+        transform: translate(-50%, -50%);
+        /* centre the button which is text */
+        text-align: center;
     }
 
 }
