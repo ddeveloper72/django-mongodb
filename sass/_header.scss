@@ -8,15 +8,6 @@
     background-position: top;
     position: relative;
 
-    &__logo--box {
-        position: absolute;
-        top: 4rem;
-        left: 4rem;
-    }
-
-    &__logo {
-        height: 3rem;
-    }
 
     &__text--box {
         /* first align the text-box relative to the parent-body element... */
