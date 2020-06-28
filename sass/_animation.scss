@@ -13,3 +13,20 @@
         transform: translate(0);
     }
 }
+
+
+@keyframes moveInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(1rem);
+    }
+
+    80% {
+        transform: translate(-1rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
