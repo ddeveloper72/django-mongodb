@@ -1,17 +1,30 @@
 .nav {
+    align-self: stretch;
+    display: flex;
+    align-items: center;
 
-    &__button {
-
-
+    &__logo--box {
+        position: absolute;
+        top: 4rem;
+        left: 4rem;
     }
+
+    &__logo {
+        height: 3.25rem;
+        margin-left: 1rem;
+    }
+
     
     &__list {
-
+        display: flex;
+        list-style: none;
+        box-sizing: border-box;
 
     }
 
     &__item {
-
+        display: flex;
+        align-items: center;
 
     }
 
@@ -19,7 +32,39 @@
 
         &--item {
 
-            
+
         }
+    }
+}
+
+.search {
+    flex: 0 0 30%;
+    // flex item becomes a flex container - nested flex elements
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &__input {
+        font-family: inherit;
+        font-size: inherit;
+        color: inherit;
+        background-color: $color-grey-light;
+        border: none;
+        padding: .7rem 2rem;
+        border-radius: 100px;
+        width: 90%;
+        margin-right: -3.25rem;
+    }
+
+    &__button {
+        border: none;
+        
+
+    }
+
+    &__icon {
+        height: 2rem;
+        width: 2rem;
+        fill: $color-grey-dark;
     }
 }
