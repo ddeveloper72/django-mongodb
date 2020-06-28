@@ -8,13 +8,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog Site</title>
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,400i|Nunito:300,300i" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="{% static 'favicon/favicon.ico' %}">
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
 </head>
 
 <body>
-    <header class="header">    
-        
-    </header>
     <nav class="nav">
         <button class="nav__button">Nav Menu</button>
         <ul class="nav__list">
@@ -22,11 +20,22 @@
             <li class="nav__item"><a href="#" class="nav__link"><span class="nav__link--item">link - 1</span></a></li>
             <li class="nav__item"><a href="#" class="nav__link"><span class="nav__link--item">link - 2</span></a></li>
             <li class="nav__item"><a href="#" class="nav__link"><span class="nav__link--item">link - 3</span></a></li>
-        </ul>        
+        </ul>
     </nav>
-    
-    
-    
+    <header class="header">
+        <div class="header__logo--box">
+            <img src="{% static 'img/wip.png' %}" alt="header logo" class="header__logo">
+        </div>
+        <div class="header__text--box">
+            <h1 class="heading-primary">
+                <span class="heading-primary--main">Main Heading</span>
+                <span class="heading-primary--sub">Sub Heading</span>
+            </h1>
+        </div>
+    </header>
+
+
+
 
     <main>
 
