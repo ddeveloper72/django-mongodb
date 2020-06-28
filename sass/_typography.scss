@@ -1,0 +1,21 @@
+.heading-primary {
+    color: $color-white;
+    text-transform: uppercase;
+
+    &--main {
+        display: block;
+        font-size: 6rem;
+        font-weight: 400;
+        letter-spacing: 2.5rem;
+
+    }
+
+    &--sub {
+        display: block;
+        font-size: 2rem;
+        font-weight: 700;
+        letter-spacing: 1.74rem;
+
+    }
+
+}
