@@ -19,7 +19,10 @@
     }
 
     &__text--box {
-      
+        /* first align the text-box relative to the parent-body element... */
+        position: absolute;
+        top: 40%;
+        left: 50%;
     }
 
 }
