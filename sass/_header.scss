@@ -1,0 +1,23 @@
+.header {
+    height: 85vh;
+    background-image: linear-gradient(to right bottom,
+            rgba($color-primary-light, 0.4),
+            rgba($color-primary-dark, 0.8)),
+        url(../img/home-bg.jpg);
+    background-size: cover;
+    background-position: top;
+    position: relative;
+
+    &__logo--box {
+        
+    }
+
+    &__logo {
+        height: 3rem;
+    }
+
+    &__text--box {
+      
+    }
+
+}
