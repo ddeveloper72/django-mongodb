@@ -24,7 +24,6 @@ favicon_view = RedirectView.as_view(url='favicon/favicon.ico', permanent=True)
 
 urlpatterns = [
     path('favicon.ico/', favicon_view, name="favicon"),
-    path('', include('blog.urls')),
     path('blog/', include('blog.urls')),
     path('admin/', admin.site.urls)
 ]
