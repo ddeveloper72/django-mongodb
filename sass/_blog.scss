@@ -17,15 +17,30 @@
 
 }
 
-.blog {
+.post {
     grid-column: center-start / center-end;
     margin: 15rem 0;
 
-    &__name {
+    &__metadata {
+        font-size: 1.2rem;
+
+        &--date {
+
+           
+        }
+
+        &--tag {
+
+
+        }
+        
+    }
+
+    &__title {
         color: orangered;
     }
 
-    &__tagline {
+    &__content {
         font-size: 1.7rem;
 
     }
@@ -37,32 +52,24 @@
 
     }
 
-    &__meta {
-        list-style: none;
+
+    &__body-text {
+        font-family: $font-display;
         font-size: 1.2rem;
-        
-    }
 
-    &__body {
-
-        &-text {
-            font-family: $font-display;
-            font-size: 1.2rem;
-
-        }
     }
     
-    &__comment
+}
 
-    {
-        &-text {
-            font-size: 1.2rem;
-        }
+.comment {
 
-        &-name {
-            font-size: 1.2rem;
-            font-weight: 400;
-            font-style: italic;
-        }
+    &__author {
+
+
+    }
+
+    &__body-text {
+
+
     }
 }

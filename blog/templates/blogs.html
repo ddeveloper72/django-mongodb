@@ -10,11 +10,11 @@
         {% for post in posts %}
 
         <div class="post">
-            <div class="meta-data">
-                <span class="post__date">
+            <div class="post__metadata">
+                <span class="post__metadata--date">
                     <a href="{% url 'post_detail' post.slug  %}">{{ post.meta_data.created_on }}</a>                    
                 </span>
-                <span class="post__tag">
+                <span class="post__metadata--tag">
                     <a href="{% url 'post_detail' post.slug  %}">Tagline: {{ post.title.tagline }}</a>
                 </span>
             </div>
@@ -29,17 +29,19 @@
         </div>
 
         {% for comment in post.comments.all %}
-        <p class="blog__author">Comment by: {{ comment.name }} | Comment id: {{ comment.id}} | {{ comment.created_on }}
-        </p>
-        <p class="blog__body-text">{{ comment.comment_text|safe }}</p>
-
-        {% empty %}
-
-        <div class="row">
-            <p>No comments yet</p>
+        <div class="comment">
+            <p class="comment__author">Comment by: {{ comment.name }} | Comment id: {{ comment.id}} | {{ comment.created_on }}
+            comment
+            <p class="comment__body-text">{{ comment.comment_text|safe }}</p>
+    
+            {% empty %}
+    
+            <div class="row">
+                <p>No comments yet</p>
+            </div>
+    
+            {% endfor %}
         </div>
-
-        {% endfor %}
 
         <a class="btn btn-default btn-primary" href="{% url 'add_comment' pk=post.pk %}">Add
             comment</a>
