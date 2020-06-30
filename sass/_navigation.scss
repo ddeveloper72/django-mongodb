@@ -1,6 +1,9 @@
 .nav {
+    padding: 10px;
     align-self: stretch;
     display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
     align-items: center;
 
     &__logo--box {
@@ -14,25 +17,32 @@
         margin-left: 1rem;
     }
 
-    
+
     &__list {
         display: flex;
         list-style: none;
-        box-sizing: border-box;
-
+        justify-content: flex-end
     }
 
     &__item {
         display: flex;
-        align-items: center;
+        margin-right: 20px;
+
+
+        &:last-child {
+            margin-right: 0px;
+        }
 
     }
 
     &__link {
+        text-decoration: none;
 
         &--item {
-
-
+            font-family: $font-display;
+            font-weight: 400;
+            font-size: 1.2rem;
+            color: $color-white;
         }
     }
 }
@@ -58,7 +68,7 @@
 
     &__button {
         border: none;
-        
+
 
     }
 
