@@ -58,16 +58,29 @@
         font-family: inherit;
         font-size: inherit;
         color: inherit;
-        background-color: $color-grey-light;
+        background-color: $color-grey-light-2;
         border: none;
         padding: .7rem 2rem;
         border-radius: 100px;
         width: 90%;
         margin-right: -3.25rem;
+        
+        &:focus {
+            outline: none;
+            width: 100%;
+            background-color: $color-grey-light-3;
+            
+        }
+        
+        &::-webkit-input-placeholder {
+            font-weight: 100;
+            color: var(--color-grey-light-4);
+        }
     }
 
     &__button {
         border: none;
+        background-color: $color-grey-light-2;
 
 
     }
@@ -75,6 +88,6 @@
     &__icon {
         height: 2rem;
         width: 2rem;
-        fill: $color-grey-dark;
+        fill: color-grey-dark-3;
     }
 }

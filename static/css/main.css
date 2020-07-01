@@ -229,7 +229,7 @@ body {
   font-family: inherit;
   font-size: inherit;
   color: inherit;
-  background-color: #cacaca;
+  background-color: #f4f2f2;
   border: none;
   padding: .7rem 2rem;
   border-radius: 100px;
@@ -237,14 +237,26 @@ body {
   margin-right: -3.25rem;
 }
 
+.search__input:focus {
+  outline: none;
+  width: 100%;
+  background-color: #f0eeee;
+}
+
+.search__input::-webkit-input-placeholder {
+  font-weight: 100;
+  color: var(--color-grey-light-4);
+}
+
 .search__button {
   border: none;
+  background-color: #f4f2f2;
 }
 
 .search__icon {
   height: 2rem;
   width: 2rem;
-  fill: #646060;
+  fill: color-grey-dark-3;
 }
 
 .heading-primary {
