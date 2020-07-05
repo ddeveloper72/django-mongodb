@@ -206,7 +206,7 @@ body {
 .nav__link--item {
   font-family: "Josefin Sans", sans-serif;
   font-weight: 400;
-  font-size: 1.2rem;
+  font-size: 1.6rem;
   color: #fff;
 }
 
@@ -235,6 +235,10 @@ body {
   border-radius: 100px;
   width: 90%;
   margin-right: -3.25rem;
+  -webkit-transition-duration: .2s;
+          transition-duration: .2s;
+  -webkit-transition-timing-function: ease-out;
+          transition-timing-function: ease-out;
 }
 
 .search__input:focus {
@@ -251,6 +255,15 @@ body {
 .search__button {
   border: none;
   background-color: #f4f2f2;
+}
+
+.search__button:focus {
+  outline: none;
+}
+
+.search__button:active {
+  -webkit-transform: translateY(2px);
+          transform: translateY(2px);
 }
 
 .search__icon {

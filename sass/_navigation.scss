@@ -41,7 +41,7 @@
         &--item {
             font-family: $font-display;
             font-weight: 400;
-            font-size: 1.2rem;
+            font-size: 1.6rem;
             color: $color-white;
         }
     }
@@ -65,12 +65,14 @@
         border-radius: 100px;
         width: 90%;
         margin-right: -3.25rem;
+        transition-duration: .2s;
+        transition-timing-function: ease-out;
 
         &:focus {
             outline: none;
             width: 100%;
             background-color: $color-grey-light-3;
-            
+
         }
 
         &::-webkit-input-placeholder {
