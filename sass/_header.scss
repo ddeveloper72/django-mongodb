@@ -1,5 +1,8 @@
 .header {
     height: 85vh;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
     background-image: linear-gradient(to right bottom,
             rgba($color-primary-light, 0.4),
             rgba($color-primary-dark, 0.8)),
@@ -14,7 +17,8 @@
         position: absolute;
         top: 40%;
         left: 50%;
-        display: block;
+        display: grid;
+        grid-row: 2 / 3;
         /* ...then move the element itself again relative to the fixed top, left x y position */
         transform: translate(-50%, -50%);
         /* centre the button which is text */
