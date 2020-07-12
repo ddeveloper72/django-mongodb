@@ -12,30 +12,33 @@
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
 </head>
 
-<body>
+<body class="container"> 
+    
     <header class="header">
-        <nav class="nav">
-            <div class="mav_logo--box">
-                <img src="{% static 'img/wip.png' %}" alt="header logo" class="nav__logo">
-            </div>
-            <form action="#" class="search">
-                <input type="text" class="search__input" placeholder="blog search">
-                <button class="search__button">
-                    <svg class="search__icon">
-                        <use xlink:href="{% static 'svg/sprite.svg' %}#icon-magnifying-glass"></use>
-                    </svg>
-                </button>
-            </form>
-            <ul class="nav__list">
-                <li class="nav__item"><a href="#" class="nav__link"><span class="nav__link--item">Home</span></a></li>
-                <li class="nav__item"><a href="#" class="nav__link"><span class="nav__link--item">About</span></a>
-                </li>
-                <li class="nav__item"><a href="#" class="nav__link"><span class="nav__link--item">Contact</span></a>
-                </li>
-                <li class="nav__item"><a href="#" class="nav__link"><span class="nav__link--item">Blog</span></a>
-                </li>
-            </ul>
-        </nav>
+        <div class="navbar">
+            <nav class="nav">
+                <div class="mav_logo--box">
+                    <img src="{% static 'img/wip.png' %}" alt="header logo" class="nav__logo">
+                </div>
+                <form action="#" class="search">
+                    <input type="text" class="search__input" placeholder="blog search">
+                    <button class="search__button">
+                        <svg class="search__icon">
+                            <use xlink:href="{% static 'svg/sprite.svg' %}#icon-magnifying-glass"></use>
+                        </svg>
+                    </button>
+                </form>
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="#" class="nav__link"><span class="nav__link--item">Home</span></a></li>
+                    <li class="nav__item"><a href="#" class="nav__link"><span class="nav__link--item">About</span></a>
+                    </li>
+                    <li class="nav__item"><a href="#" class="nav__link"><span class="nav__link--item">Contact</span></a>
+                    </li>
+                    <li class="nav__item"><a href="#" class="nav__link"><span class="nav__link--item">Blog</span></a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
         <div class="header__text--box">
             <h1 class="heading-primary">
                 <span class="heading-primary--main">Main Heading</span>
