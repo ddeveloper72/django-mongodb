@@ -36,8 +36,15 @@ html {
 
 body {
     box-sizing: border-box;
-    padding: 3rem;
+    //padding: 3rem;
 }
 
 
-.content {}
+.container {    
+    display: grid;
+    grid-template-columns:  [full-start] 1fr
+                            [center-start] repeat(3,[col-start] 1fr 
+                                                    [col-end]) 
+                            [center-end] 
+                            [full-end];
+}
