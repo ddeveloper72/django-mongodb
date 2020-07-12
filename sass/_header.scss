@@ -1,7 +1,7 @@
 .header {
     height: 85vh;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: full-start / full-end;
     grid-template-rows: repeat(2, 1fr);
     background-image: linear-gradient(to right bottom,
             rgba($color-primary-light, 0.4),
