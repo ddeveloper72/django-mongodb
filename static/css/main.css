@@ -108,7 +108,7 @@ body {
 
 .blogs {
   grid-column: center-start / center-end;
-  margin: 15rem 0;
+  margin: 2rem 0;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (1fr)[3];
@@ -121,7 +121,7 @@ body {
 
 .single-blog {
   grid-column: center-start / center-end;
-  margin: 15rem 0;
+  margin: 2rem 0;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (1fr)[3];
@@ -214,14 +214,6 @@ body {
   font-size: 1.4rem;
 }
 
-.detailed-post__metadata--date a {
-  text-decoration: none;
-}
-
-.detailed-post__metadata--tag a {
-  text-decoration: none;
-}
-
 .detailed-post__title {
   font-size: 2rem;
 }
@@ -232,7 +224,7 @@ body {
 }
 
 .detailed-post__tagline {
-  font-size: 1.2rem;
+  font-size: 1.6rem;
   font-weight: 400;
   font-style: italic;
 }
@@ -247,10 +239,9 @@ body {
   font-style: italic;
 }
 
-.detailed-post__body-text {
+.detailed-post__content {
   font-size: 1.4rem;
   font-weight: 400;
-  font-style: italic;
 }
 
 .comment {
@@ -267,10 +258,9 @@ body {
   font-style: italic;
 }
 
-.comment__body-text {
+.comment__content {
   font-size: 1.7rem;
   font-weight: 400;
-  font-style: italic;
 }
 
 .header {
