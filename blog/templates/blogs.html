@@ -2,64 +2,69 @@
 {% load static from staticfiles %}
 {% block content %}
 
-<article>
-    <section class="hero">
+
+    <section class="blogs">
 
         {% if posts %}
 
         {% for post in posts %}
+            <div class="post">
+                <h2 class="post__title">
+                    <a href="{% url 'post_detail' post.slug  %}">{{ post.title.name}} | Post id: {{post.id}}</a>
+                </h2>
+                    <ul class="post__metadata">
+                        <li>
+                            <span class="post__metadata--date">
+                                <a href="{% url 'post_detail' post.slug  %}">{{ post.meta_data.created_on }}</a>                    
+                            </span>
+                        </li>
+                        <li>
+                            <span class="post__metadata--tag">
+                                <a href="{% url 'post_detail' post.slug  %}">Tagline: {{ post.title.tagline }}</a>
+                            </span>
+                        </li>
+                    </ul> 
+                    <div class="row">
+                        <p class="post__content">Content: {{post.content|slice:":200" }} | 
+                            Last updated: {{ post.meta_data.updated_on }}</p>
+                        <a href="{% url 'post_detail' post.slug  %}" class="btn">Read More &rarr;</a>                        
+                        <a class="btn" href="{% url 'add_comment' pk=post.pk %}">Add
+                            comment</a>               
+                        </p>
 
-        <div class="post">
-            <div class="post__metadata">
-                <span class="post__metadata--date">
-                    <a href="{% url 'post_detail' post.slug  %}">{{ post.meta_data.created_on }}</a>                    
-                </span>
-                <span class="post__metadata--tag">
-                    <a href="{% url 'post_detail' post.slug  %}">Tagline: {{ post.title.tagline }}</a>
-                </span>
+                    </div>                    
             </div>
-            <div class="post__title">
-                <a href="{% url 'post_detail' post.slug  %}">{{ post.title.name}} | Post id: {{post.id}}</a>
-            </div>
-            <div class="post__content">
-                <p>Content: {{post.content|slice:":200" }}</p>
-                <p>Last updated: {{ post.meta_data.updated_on }}</p>
-                <a href="{% url 'post_detail' post.slug  %}" class="btn btn-primary">Read More &rarr;</a>
-            </div>
-        </div>
 
-        {% for comment in post.comments.all %}
-        <div class="comment">
-            <p class="comment__author">Comment by: {{ comment.name }} | Comment id: {{ comment.id}} | {{ comment.created_on }}
-            comment
-            <p class="comment__body-text">{{ comment.comment_text|safe }}</p>
-    
-            {% empty %}
-    
-            <div class="row">
-                <p>No comments yet</p>
-            </div>
-    
-            {% endfor %}
-        </div>
-
-        <a class="btn btn-default btn-primary" href="{% url 'add_comment' pk=post.pk %}">Add
-            comment</a>
-
+            <!-- {% for comment in post.comments.all %}
+                <div class="comment">
+                    <p class="comment__author">Comment by: {{ comment.name }} | Comment id: {{ comment.id}} | {{ comment.created_on }}
+                    comment
+                    <p class="comment__body-text">{{ comment.comment_text|safe }}</p>
+        
+                {% empty %}
+        
+                    <div class="row">
+                        <p>No comments yet</p>
+                    </div>        
+                </div>
+            {% endfor %} -->
+            
+            
+                
         {% endfor %}
-
-        <a href="{% url 'new_post' %}" class="btn" role="button">
-            New Post</a>
-
+        <div class="row">
+            <a href="{% url 'new_post' %}" class="btn" role="button">
+                New Post</a>
+                    
         {% else %}
+                    
+            <p>There are no blog items added yet</p>
+            <a href="{% url 'new_post' %}" class="btn" role="button">
+                New Post</a>               
 
-        <p>There are no blog items added yet</p>
-        <a href="{% url 'new_post' %}" class="btn" role="button">
-            New Post</a>
-
+        </div>                
         {% endif %}
+    </section>                     
 
-    </section>
-</article>
 
 {% endblock content %}
