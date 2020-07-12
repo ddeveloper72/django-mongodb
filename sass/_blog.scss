@@ -28,6 +28,15 @@
     
 }
 
+.single-blog {
+    grid-column: center-start / center-end;
+    margin: 15rem 0;
+    display: grid;
+     grid-template-columns: repeat(3, 1fr);
+    grid-gap: 6rem;
+    align-items: start;
+}
+
 .post {
     display: grid;
     grid-template-columns: min-content, 1fr;
@@ -99,18 +108,93 @@
     }
     
 }
+.detailed-post {
+    display: grid;
+    grid-column: 2 / 3;
+    grid-template-columns: min-content, 20%;
+    grid-row-gap: 1.5rem;
+    grid-column-gap: 2.5rem;
+    
+    &__metadata {
+        display: grid;
+        //grid-column: 1 / -1;
+        list-style: none;
+        font-size: 1.4rem;
+
+        &--date {
+            
+
+            a {
+                text-decoration: none;
+
+            }
+
+           
+        }
+
+        &--tag {
+
+            a {
+                text-decoration: none;
+
+            }
+
+        }
+        
+    }
+
+    &__title {
+        font-size: 2rem;
+        
+        a {
+            color: orangered;
+            text-decoration: none;
+        }
+    }
+
+    &__tagline {
+        font-size: 1.2rem;
+        font-weight: 400;
+        font-style: italic;
+    }
+
+    &__content {
+        font-size: 1.7rem;
+
+    }
+
+    &__author {
+        font-size: 1.4rem;
+        font-weight: 400;
+        font-style: italic;
+
+    }
+
+
+    &__body-text {
+        font-size: 1.4rem;
+        font-weight: 400;
+        font-style: italic;
+
+    }
+    
+}
 
 .comment {
     display: grid;
     grid-template-columns: min-content 1fr;
 
     &__author {
-
+        font-size: 1.4rem;
+        font-weight: 400;
+        font-style: italic;
 
     }
 
     &__body-text {
-
+        font-size: 1.7rem;
+        font-weight: 400;
+        font-style: italic;
 
     }
 }

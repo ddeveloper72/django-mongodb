@@ -119,6 +119,19 @@ body {
           align-items: start;
 }
 
+.single-blog {
+  grid-column: center-start / center-end;
+  margin: 15rem 0;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+  grid-gap: 6rem;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
+}
+
 .post {
   display: -ms-grid;
   display: grid;
@@ -181,12 +194,83 @@ body {
   font-size: 1.2rem;
 }
 
+.detailed-post {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-column: 2 / 3;
+  -ms-grid-columns: min-content, 20%;
+      grid-template-columns: -webkit-min-content, 20%;
+      grid-template-columns: min-content, 20%;
+  grid-row-gap: 1.5rem;
+  grid-column-gap: 2.5rem;
+}
+
+.detailed-post__metadata {
+  display: -ms-grid;
+  display: grid;
+  list-style: none;
+  font-size: 1.4rem;
+}
+
+.detailed-post__metadata--date a {
+  text-decoration: none;
+}
+
+.detailed-post__metadata--tag a {
+  text-decoration: none;
+}
+
+.detailed-post__title {
+  font-size: 2rem;
+}
+
+.detailed-post__title a {
+  color: orangered;
+  text-decoration: none;
+}
+
+.detailed-post__tagline {
+  font-size: 1.2rem;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.detailed-post__content {
+  font-size: 1.7rem;
+}
+
+.detailed-post__author {
+  font-size: 1.4rem;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.detailed-post__body-text {
+  font-size: 1.4rem;
+  font-weight: 400;
+  font-style: italic;
+}
+
 .comment {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: min-content 1fr;
       grid-template-columns: -webkit-min-content 1fr;
       grid-template-columns: min-content 1fr;
+}
+
+.comment__author {
+  font-size: 1.4rem;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.comment__body-text {
+  font-size: 1.7rem;
+  font-weight: 400;
+  font-style: italic;
 }
 
 .header {
