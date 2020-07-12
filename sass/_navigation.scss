@@ -1,12 +1,24 @@
+.navbar {
+    display: grid;
+    grid-column: full-start / -1;
+    //grid-template-columns: repeat(3, 1fr);
+    //items to start of column (top)
+    align-self: start;
+}
+
+
 .nav {
     padding: 10px;
     align-self: stretch;
-    display: flex;
+    //display: flex;
+    grid-template-columns: repeat(3, 1fr);
+    display: grid;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-
     &__logo--box {
+        display: grid;
+        grid-column: 1 / 2;
         position: absolute;
         top: 4rem;
         left: 4rem;
