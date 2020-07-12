@@ -2,22 +2,25 @@
 {% load static from staticfiles %}
 {% block content %}
 
-<article class="main-content">
-    <section>
-        <h1 class="heading-1 blog__title">Title: {{ post.title.name }}</h1>
-        <h2 class="heading-2 blog__tagline">Tagline: {{ post.title.tagline }}</h2>
-        <h2 class="heading-1 blog__headline">Headline: {{ post.headline }}</h2>
-        <p class="blog__author">Author: {{ post.author }} | {{ post.meta_data.created_on }}</p>
-        <p class="blog__body-text">Content: {{ post.content|safe }}</p>
+<section class="single-blog">
+    <div class="detailed-post">
+        <h2 class="heading-2 detailed-post__tagline">Tagline: {{ post.title.tagline }}</h2>
+        <h2 class="heading-1 detailed-post__headline">Headline: {{ post.headline }}</h2>
+        <h1 class="heading-1 detailed-post__title">Title: {{ post.title.name }}</h1>
+        <p class="detailed-post__author">Author: {{ post.author }} | {{ post.meta_data.created_on }}</p>
+        <p class="detailed-post__content">Content: {{ post.content|safe }}</p>
         <p>Updated: {{ post.meta_data.updated_on }}</p>
-        <a href="{% url 'blogs' %}" class="btn btn-primary">&larr; Return to blogs</a>
-        <a href="{% url 'edit' post.slug %}" class="btn btn-primary">Edit post &rarr;</a>
-        <a href="{% url 'delete' slug=post.slug %}" class="btn btn-primary">Delete post &rarr;</a>
+        <div class="row">
+            <a href="{% url 'blogs' %}" class="btn btn-primary">&larr; Return to blogs</a>
+            <a href="{% url 'edit' post.slug %}" class="btn btn-primary">Edit post &rarr;</a>
+            <a href="{% url 'delete' slug=post.slug %}" class="btn btn-primary">Delete post &rarr;</a>
+
+        </div>
 
         {% for comment in post.comments.all %}
 
-        <p class="blog__author">Comment by: {{ comment.name }} | {{ comment.created_on }}</p>
-        <p class="blog__body-text">{{ comment.comment_text|safe }}</p>
+        <p class="comment__author">Comment by: {{ comment.name }} | {{ comment.created_on }}</p>
+        <p class="comment__body-text">{{ comment.comment_text|safe }}</p>
 
         {% empty %}
 
@@ -26,10 +29,11 @@
         </div>
 
         {% endfor %}
-
-        <a class="btn btn-default btn-primary" href="{% url 'add_comment' pk=post.pk %}">Add
-            comment</a>
-    </section>
-</article>
+        <div class="row">
+            <a class="btn btn-default btn-primary" href="{% url 'add_comment' pk=post.pk %}">Add
+                comment</a>
+        </div>
+    </div>
+</section>
 
 {% endblock content %}
