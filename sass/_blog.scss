@@ -5,55 +5,94 @@
 
 .heading-1 {
     @extend %heading;
-    font-size: 4.5rem;
+    font-size: 2rem;
     line-height: 1;
 
 }
 
 .heading-2 {
     @extend %heading;
-    font-size: 2rem;
+    font-size: 1rem;
     line-height: 1;
 
 }
 
-.post {
+.blogs {
     grid-column: center-start / center-end;
     margin: 15rem 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    // grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    grid-gap: 6rem;
+    align-items: start;
+    
+}
 
+.post {
+    display: grid;
+    grid-template-columns: min-content, 1fr;
+    grid-row-gap: 1.5rem;
+    grid-column-gap: 2.5rem;
+    
     &__metadata {
-        font-size: 1.2rem;
+        display: grid;
+        grid-column: 1 / -1;
+        list-style: none;
+        font-size: 1.4rem;
 
         &--date {
+            
+
+            a {
+                text-decoration: none;
+
+            }
 
            
         }
 
         &--tag {
 
+            a {
+                text-decoration: none;
+
+            }
 
         }
         
     }
 
     &__title {
-        color: orangered;
+        display: grid;
+        grid-column: 1 / -1;
+        font-size: 2rem;
+        
+        a {
+            color: orangered;
+            text-decoration: none;
+        }
     }
 
     &__content {
+        display: grid;
+        grid-column: 1 / -1;
         font-size: 1.7rem;
 
     }
 
     &__author {
-    font-size: 1.2rem;
-    font-weight: 400;
-    font-style: italic;
+        display: grid;
+        grid-column: 1 / -1;
+        font-size: 1.2rem;
+        font-weight: 400;
+        font-style: italic;
 
     }
 
 
     &__body-text {
+        display: grid;
+        grid-column: 1 / -1;
         font-family: $font-display;
         font-size: 1.2rem;
 
@@ -62,6 +101,8 @@
 }
 
 .comment {
+    display: grid;
+    grid-template-columns: min-content 1fr;
 
     &__author {
 
