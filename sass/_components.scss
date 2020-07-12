@@ -1,1 +1,17 @@
-
+.btn {
+    &,
+    &:link,
+    &:visited {
+        text-transform: uppercase;
+        text-decoration: none;
+        text-align: center;
+        padding: 2rem;
+        margin: 4px 2px;
+        display: inline-block;
+        border-radius: .4rem;
+        background-color: orange;
+        font-size: 1.2rem;
+        border: none;
+        cursor: pointer;
+    }
+}
