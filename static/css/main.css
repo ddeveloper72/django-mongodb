@@ -82,7 +82,13 @@ html {
 body {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  padding: 3rem;
+}
+
+.container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: [full-start] 1fr [center-start] ([col-start] 1fr [col-end])[3] [center-end] [full-end];
+      grid-template-columns: [full-start] 1fr [center-start] repeat(3, [col-start] 1fr [col-end]) [center-end] [full-end];
 }
 
 .heading-1, .heading-2 {
@@ -91,45 +97,106 @@ body {
 }
 
 .heading-1 {
-  font-size: 4.5rem;
-  line-height: 1;
-}
-
-.heading-2 {
   font-size: 2rem;
   line-height: 1;
 }
 
-.post {
+.heading-2 {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.blogs {
   grid-column: center-start / center-end;
   margin: 15rem 0;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+  grid-gap: 6rem;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
+}
+
+.post {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: min-content, 1fr;
+      grid-template-columns: -webkit-min-content, 1fr;
+      grid-template-columns: min-content, 1fr;
+  grid-row-gap: 1.5rem;
+  grid-column-gap: 2.5rem;
 }
 
 .post__metadata {
-  font-size: 1.2rem;
+  display: -ms-grid;
+  display: grid;
+  grid-column: 1 / -1;
+  list-style: none;
+  font-size: 1.4rem;
+}
+
+.post__metadata--date a {
+  text-decoration: none;
+}
+
+.post__metadata--tag a {
+  text-decoration: none;
 }
 
 .post__title {
+  display: -ms-grid;
+  display: grid;
+  grid-column: 1 / -1;
+  font-size: 2rem;
+}
+
+.post__title a {
   color: orangered;
+  text-decoration: none;
 }
 
 .post__content {
+  display: -ms-grid;
+  display: grid;
+  grid-column: 1 / -1;
   font-size: 1.7rem;
 }
 
 .post__author {
+  display: -ms-grid;
+  display: grid;
+  grid-column: 1 / -1;
   font-size: 1.2rem;
   font-weight: 400;
   font-style: italic;
 }
 
 .post__body-text {
+  display: -ms-grid;
+  display: grid;
+  grid-column: 1 / -1;
   font-family: "Josefin Sans", sans-serif;
   font-size: 1.2rem;
 }
 
+.comment {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: min-content 1fr;
+      grid-template-columns: -webkit-min-content 1fr;
+      grid-template-columns: min-content 1fr;
+}
+
 .header {
   height: 85vh;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: full-start / full-end;
+      grid-template-columns: full-start / full-end;
+  -ms-grid-rows: (1fr)[2];
+      grid-template-rows: repeat(2, 1fr);
   background-image: -webkit-gradient(linear, left top, right bottom, from(rgba(153, 153, 153, 0.4)), to(rgba(119, 119, 119, 0.8))), url(../img/home-bg.jpg);
   background-image: linear-gradient(to right bottom, rgba(153, 153, 153, 0.4), rgba(119, 119, 119, 0.8)), url(../img/home-bg.jpg);
   background-size: cover;
@@ -142,7 +209,11 @@ body {
   position: absolute;
   top: 40%;
   left: 50%;
-  display: block;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  grid-row: 2 / 3;
   /* ...then move the element itself again relative to the fixed top, left x y position */
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
@@ -150,13 +221,22 @@ body {
   text-align: center;
 }
 
+.navbar {
+  display: -ms-grid;
+  display: grid;
+  grid-column: full-start / -1;
+  -ms-grid-row-align: start;
+      align-self: start;
+}
+
 .nav {
   padding: 10px;
-  -ms-flex-item-align: stretch;
+  -ms-grid-row-align: stretch;
       align-self: stretch;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+  display: -ms-grid;
+  display: grid;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   -webkit-box-pack: justify;
@@ -168,6 +248,11 @@ body {
 }
 
 .nav__logo--box {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-column: 1 / 2;
   position: absolute;
   top: 4rem;
   left: 4rem;
@@ -300,5 +385,19 @@ body {
   letter-spacing: 1.74rem;
   -webkit-animation: moveInRight 1s ease-out;
           animation: moveInRight 1s ease-out;
+}
+
+.btn, .btn:link, .btn:visited {
+  text-transform: uppercase;
+  text-decoration: none;
+  text-align: center;
+  padding: 2rem;
+  margin: 4px 2px;
+  display: inline-block;
+  border-radius: .4rem;
+  background-color: orange;
+  font-size: 1.2rem;
+  border: none;
+  cursor: pointer;
 }
 /*# sourceMappingURL=main.css.map */
